@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Elegan | Biodata Diri</title>
+    <!-- Memuat Tailwind CSS untuk layout responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Memuat Google Fonts (Playfair Display untuk judul, Lato untuk teks) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Konfigurasi Font */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #0f172a; /* Warna latar belakang gelap elegan (slate-900) */
+            color: #e2e8f0; /* Warna teks utama terang */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .elegant-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Warna Aksen Emas Kustom */
+        .text-gold { color: #d4af37; }
+        .bg-gold { background-color: #d4af37; }
+        .border-gold { border-color: #d4af37; }
+        
+        /* Efek Gradien Teks */
+        .gradient-text {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientMove 5s ease infinite alternate;
+            background-size: 200% auto;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Latar Belakang Animasi Partikel Halus */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        /* Efek Glassmorphism untuk Kartu/Kontainer */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.5);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        /* Animasi Fade In Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Galeri Hover Effect */
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.6);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transition: bottom 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            bottom: 0;
+        }
+
+        /* Kustomisasi Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b38728;
+        }
+
+        /* Elemen Dekoratif Garis Emas */
+        .gold-line-separator {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+            margin: 1.5rem auto;
+        }
+
+        /* Badge/Tag Animasi */
+        .skill-badge {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.4s ease;
+        }
+        .skill-badge:hover::before {
+            left: 100%;
+        }
+        .skill-badge:hover {
+            background-color: #d4af37;
+            color: #0f172a;
+            border-color: #d4af37;
+        }
+
+        /* Gaya tambahan khusus untuk bagian Gaming Portfolio */
+        .game-card {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+        }
+        .game-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+        }
+        .copied-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .copied-tooltip.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Lightbox Modal untuk Foto Highlight */
+        .lightbox {
+            display: none;
+            opacity: 0;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            transition: opacity 0.3s ease;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            margin: 20px auto;
+            display: block;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 12px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #f1f1f1;
+            font-size: 35px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 101;
+        }
+        .lightbox-close:hover {
+            color: #d4af37;
+        }
+        .lightbox-caption {
+            text-align: center;
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 600px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-slate-900">
+
+    <!-- Wadah untuk animasi latar belakang -->
+    <div id="particles-js"></div>
+
+    <!-- Navigasi Sederhana -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold elegant-font text-white tracking-widest uppercase">
+                        Profil<span class="text-gold">.</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#beranda" class="text-gray-300 hover:text-gold transition px-3 py-2 text-sm uppercase tracking-wider font-medium">Beranda</a>
+                        <a href="#biodata" class="text-gray-300 hover:text-gold transition px-3 py-2 text-sm uppercase tracking-wider font-medium">Biodata</a>
+                        <a href="#tentang" class="text-gray-300 hover:text-gold transition px-3 py-2 text-sm uppercase tracking-wider font-medium">Tentang</a>
+                        <a href="#gaming" class="text-gray-300 hover:text-gold transition px-3 py-2 text-sm uppercase tracking-wider font-medium">Gaming Arena</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Hero / Header -->
+    <section id="beranda" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="text-center z-10 px-4 max-w-4xl mx-auto">
+            <p class="text-gold text-lg tracking-[0.2em] mb-4 uppercase font-light reveal">Selamat Datang di Portofolio Saya</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 elegant-font leading-tight reveal" style="transition-delay: 0.2s;">
+                Saya <span class="gradient-text">Rangga Arya </span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light mb-10 italic reveal" style="transition-delay: 0.4s;">
+                "Seorang pelajar dengan antusiasme tinggi pada dunia teknologi, kompetisi, dan gaming."
+            </p>
+            <div class="reveal" style="transition-delay: 0.6s;">
+                <a href="#biodata" class="inline-block border border-gold text-gold hover:bg-gold hover:text-slate-900 transition-all duration-300 px-8 py-3 rounded-full tracking-wider uppercase text-sm font-semibold">
+                    Kenali Saya Lebih Lanjut
+                </a>
+            </div>
+        </div>
+        
+        <!-- Indikator Scroll ke bawah -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#biodata" class="text-gold opacity-70 hover:opacity-100 transition">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Bagian Biodata Singkat -->
+    <section id="biodata" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-2 elegant-font">Informasi Pribadi</h2>
+                <div class="gold-line-separator"></div>
+            </div>
+
+            <div class="glass-card p-8 md:p-12 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <!-- Sisi Kiri: Foto Profil (Placeholder) -->
+                    <div class="flex justify-center relative">
+                        <!-- Bingkai Dekoratif untuk Foto -->
+                        <div class="absolute inset-0 border-2 border-gold rounded-full scale-105 opacity-50 animate-pulse"></div>
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-700 shadow-2xl relative z-10">
+                            <!-- GANTI URL INI DENGAN FOTO ASLI ANDA -->
+                            <img src="https://i.pinimg.com/736x/1f/6d/0f/1f6d0fac6029c446f818f160844cbf87.jpg" alt="Foto Profil" class="w-full h-full object-cover transition duration-700 hover:scale-110">
+                        </div>
+                    </div>
+
+                    <!-- Sisi Kanan: Detail Biodata -->
+                    <div class="space-y-6">
+                        <div class="border-b border-slate-700 pb-4 group">
+                            <h3 class="text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-gold transition">Nama Lengkap</h3>
+                            <p class="text-xl font-medium text-white">Rangga Arya B.</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-4 group">
+                            <h3 class="text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-gold transition">Kelas</h3>
+                            <p class="text-xl font-medium text-white">XI RPL</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-4 group">
+                            <h3 class="text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-gold transition">Jenis Kelamin</h3>
+                            <p class="text-xl font-medium text-white"><i class="fas fa-mars text-gold mr-2 opacity-70"></i> [Laki-laki]</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-4 group">
+                            <h3 class="text-xs text-gray-400 uppercase tracking-widest mb-1 group-hover:text-gold transition">Alamat</h3>
+                            <p class="text-xl font-medium text-white leading-relaxed">DUSUN Ngadipiro RT4 RW10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang Diri & Analisis (Kelebihan/Kekurangan) -->
+    <section id="tentang" class="py-24 relative z-10 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-2 elegant-font">Kisah & Karakter</h2>
+                <div class="gold-line-separator"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Kolom Kiri: Cerita Diri (Lebih lebar) -->
+                <div class="lg:col-span-7 glass-card p-8 reveal">
+                    <h3 class="text-2xl elegant-font text-gold mb-6 flex items-center">
+                        <i class="fas fa-book-open mr-3 text-lg opacity-80"></i> Cerita Tentang Saya
+                    </h3>
+                    <div class="space-y-4 text-gray-300 leading-relaxed font-light text-justify">
+                        <p>
+                            <span class="text-3xl elegant-font text-gold float-left mr-2 leading-none">S</span>ejak kecil, saya selalu memiliki rasa ingin tahu yang besar terhadap perkembangan dunia digital. Perjalanan saya tidak hanya dibentuk oleh pendidikan formal, namun juga oleh interaksi saya dengan dunia video game. Bagi saya, game bukan sekadar hiburan pengisi waktu luang, melainkan sebuah ruang untuk mengasah analisis taktis, melatih fokus, kerja sama tim, dan kepemimpinan di bawah tekanan.
+                        </p>
+                        <p>
+                            Di luar jam belajar, saya menikmati mengeksplorasi strategi-strategi baru dalam beberapa judul game favorit saya. Kompetisi dalam dunia game mengajarkan saya arti dari sportivitas, mental pantang menyerah, dan evaluasi berkelanjutan demi mencapai hasil yang lebih baik—karakter dasar yang juga saya terapkan dalam kehidupan akademis saya.
+                        </p>
+                        <p>
+                            Filosofi hidup yang saya pegang adalah "Setiap kekalahan adalah data untuk kemenangan berikutnya." Saya selalu bersemangat untuk menyelaraskan hobi kompetitif ini dengan pengembangan kepribadian yang seimbang, berdedikasi, dan siap menghadapi tantangan masa depan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Kelebihan & Kekurangan (Tumpuk) -->
+                <div class="lg:col-span-5 space-y-8">
+                    
+                    <!-- Kelebihan -->
+                    <div class="glass-card p-6 reveal" style="transition-delay: 0.2s;">
+                        <h3 class="text-xl elegant-font text-emerald-400 mb-4 flex items-center">
+                            <i class="fas fa-arrow-trend-up mr-3"></i> Kelebihan
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold mt-1 mr-3 text-sm"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-200">Fokus & Analisis Cepat</h4>
+                                    <p class="text-sm text-gray-400 mt-1">Mampu mengambil keputusan taktis yang cepat dan akurat di bawah tekanan tinggi (terlatih dari game kompetitif).</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold mt-1 mr-3 text-sm"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-200">Kerja Sama Tim & Komunikasi</h4>
+                                    <p class="text-sm text-gray-400 mt-1">Dapat berkoordinasi dengan baik sebagai kawan tim untuk menyusun strategi demi mencapai tujuan bersama.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold mt-1 mr-3 text-sm"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-200">Mentalitas Pembelajar</h4>
+                                    <p class="text-sm text-gray-400 mt-1">Selalu bersemangat melakukan evaluasi mandiri dari kesalahan untuk meningkatkan performa berikutnya.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Kekurangan -->
+                    <div class="glass-card p-6 reveal" style="transition-delay: 0.4s;">
+                        <h3 class="text-xl elegant-font text-rose-400 mb-4 flex items-center">
+                            <i class="fas fa-arrow-trend-down mr-3"></i> Kekurangan (Ruang Berkembang)
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle-notch text-gray-500 mt-1 mr-3 text-sm"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-200">Hanyut dalam Detail (Perfeksionis)</h4>
+                                    <p class="text-sm text-gray-400 mt-1">Terkadang menghabiskan waktu terlalu lama untuk menyempurnakan suatu taktik atau detail kecil. <span class="text-emerald-400/80 italic text-xs block">Sedang belajar membagi skala prioritas secara objektif.</span></p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle-notch text-gray-500 mt-1 mr-3 text-sm"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-200">Manajemen Waktu Layar (Screen Time)</h4>
+                                    <p class="text-sm text-gray-400 mt-1">Seringkali keasyikan saat mendalami game kompetitif. <span class="text-emerald-400/80 italic text-xs block">Secara aktif menggunakan pengingat waktu (alarm) untuk menyeimbangkan hobi dan istirahat.</span></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Hobi & Portofolio Game -->
+    <section id="gaming" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <p class="text-gold text-sm tracking-[0.2em] mb-2 uppercase font-light">Showcase Portofolio Gaming</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-2 elegant-font">Gaming Arena</h2>
+                <div class="gold-line-separator"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+                    Inilah ruang hobi utama saya. Beberapa game kompetitif yang aktif saya mainkan, statistik pencapaian, serta profil akun saya agar kita bisa terhubung dan bermain bersama!
+                </p>
+            </div>
+
+            <!-- Grid Game Card -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- GAME 1: Mobile Legends -->
+                <div class="game-card rounded-2xl overflow-hidden reveal flex flex-col h-full">
+                    <!-- Thumbnail Game -->
+                    <div class="h-48 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZNcI1Yxxm6zEQuHg8zkTZqj-VDKnT1A8D6THpbKTIQQ&s=10" alt="Mobile Legends Arena" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 z-20 game-badge text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">MOBA</span>
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <h3 class="text-2xl font-bold text-white elegant-font">Mobile Legends: Bang Bang</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Detail Profil & Highlight -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Profil Akun -->
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-400 text-xs uppercase tracking-widest">In-Game Profile</span>
+                                    <div class="relative flex items-center">
+                                        <button onclick="copyToClipboard('762195495 ', 'ml-copied')" class="text-gold hover:text-white text-xs transition flex items-center gap-1 bg-gold/10 hover:bg-gold/25 px-2 py-1 rounded border border-gold/30">
+                                            <i class="far fa-copy"></i> Salin ID
+                                        </button>
+                                        <span id="ml-copied" class="copied-tooltip absolute -top-8 right-0 bg-gold text-slate-950 text-[10px] px-2 py-0.5 rounded shadow-lg font-bold">Tersalin!</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+                                    <div>
+                                        <p class="text-xs text-gray-500">IGN (Nama Akun)</p>
+                                        <p class="font-medium text-white text-base">Ozzy</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">ID Game (Server)</p>
+                                        <p class="font-medium text-white text-base">762195495 (12051)</p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Rank Saat Ini / Tertinggi</p>
+                                        <p class="font-medium text-yellow-400 flex items-center gap-1">
+                                            <i class="fas fa-trophy text-xs"></i> Mythic Glory
+                                        </p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Hero Favorit (Keahlian)</p>
+                                        <p class="font-medium text-gray-300">Novaria, Melisa, Beneddeta</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Pencapaian -->
+                            <div>
+                                <span class="text-gray-400 text-xs uppercase tracking-widest block mb-2">Highlights & Stats</span>
+                                <div class="space-y-3">
+                                    <!-- Foto Screenshot Highlight -->
+                                    <div class="relative group rounded-xl overflow-hidden border border-gold/20 h-32 mb-3 cursor-pointer shadow-lg hover:shadow-gold/10 transition-all duration-300" onclick="openLightbox(', '🏆 Savage & Victory Moment - MLBB: Pertempuran MCL Champion sengit penentu kemenangan tim!')">
+                                        <img src="https://i.ibb.co.com/7t7cZBcZ/Whats-App-Image-2026-07-21-at-08-16-11.jpg" alt="Highlight MLBB Savage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-between p-3">
+                                            <span class="text-xs font-semibold text-gold flex items-center gap-1.5"><i class="fas fa-trophy text-yellow-400"></i> hero title</span>
+                                            <span class="text-[9px] bg-gold/95 hover:bg-gold text-slate-950 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1"><i class="fas fa-search-plus"></i> Detail</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>Winrate Musim Ini (Ranked)</span>
+                                            <span class="text-gold font-bold">72.4%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                            <div class="bg-gradient-to-r from-yellow-600 to-gold h-1.5 rounded-full" style="width: 72.4%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-award text-yellow-500 mr-1"></i> Multi-MCL Champion</span>
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-fire text-orange-500 mr-1"></i> Supreme Local Melissa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME 2: Free Fire -->
+                <div class="game-card rounded-2xl overflow-hidden reveal flex flex-col h-full" style="transition-delay: 0.1s;">
+                    <!-- Thumbnail Game -->
+                    <div class="h-48 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                        <img src="https://i.pinimg.com/originals/1d/45/d9/1d45d9618c3f2958995d541bcfe1ac83.jpg" alt="Free Fire Battleground" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 z-20 game-badge text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Battle Royale</span>
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <h3 class="text-2xl font-bold text-white elegant-font">Garena Free Fire</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Detail Profil & Highlight -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Profil Akun -->
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-400 text-xs uppercase tracking-widest">In-Game Profile</span>
+                                    <div class="relative flex items-center">
+                                        <button onclick="copyToClipboard('1457031524', 'ff-copied')" class="text-gold hover:text-white text-xs transition flex items-center gap-1 bg-gold/10 hover:bg-gold/25 px-2 py-1 rounded border border-gold/30">
+                                            <i class="far fa-copy"></i> Salin ID
+                                        </button>
+                                        <span id="ff-copied" class="copied-tooltip absolute -top-8 right-0 bg-gold text-slate-950 text-[10px] px-2 py-0.5 rounded shadow-lg font-bold">Tersalin!</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+                                    <div>
+                                        <p class="text-xs text-gray-500">IGN (Nama Akun)</p>
+                                        <p class="font-medium text-white text-base">_Ozzy</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">ID Game</p>
+                                        <p class="font-medium text-white text-base">1457031524</p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Rank Saat Ini</p>
+                                        <p class="font-medium text-orange-500 flex items-center gap-1">
+                                            <i class="fas fa-crown text-xs"></i> Master
+                                        </p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Senjata Favorit</p>
+                                        <p class="font-medium text-gray-300">M1887, MP40, AWM</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Pencapaian -->
+                            <div>
+                                <span class="text-gray-400 text-xs uppercase tracking-widest block mb-2">Highlights & Stats</span>
+                                <div class="space-y-3">
+                                    <!-- Foto Screenshot Highlight -->
+                                    <div class="relative group rounded-xl overflow-hidden border border-gold/20 h-32 mb-3 cursor-pointer shadow-lg hover:shadow-gold/10 transition-all duration-300" onclick="openLightbox('https://i.ibb.co.com/qLvPDWwq/Whats-App-Image-2026-07-21-at-08-16-02.jpg', '🔥 Booyah Squad Wipeout - Free Fire: Dominasi squad pertempuran sengit dengan 18 Kills Solo-Squad!')">
+                                        <img src="https://i.ibb.co.com/qLvPDWwq/Whats-App-Image-2026-07-21-at-08-16-02.jpg" alt="Highlight FF Booyah" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-between p-3">
+                                            <span class="text-xs font-semibold text-gold flex items-center gap-1.5"><i class="fas fa-fire text-orange-500"></i> Booyah Squad Wipeout</span>
+                                            <span class="text-[9px] bg-gold/95 hover:bg-gold text-slate-950 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1"><i class="fas fa-search-plus"></i> Detail</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>Rasio Headshot</span>
+                                            <span class="text-gold font-bold">58.9%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                            <div class="bg-gradient-to-r from-yellow-600 to-gold h-1.5 rounded-full" style="width: 58.9%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-bolt text-amber-500 mr-1"></i> KD Ratio: 4.50 (Squad Ranked)</span>
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-crosshairs text-red-500 mr-1"></i> Rush Attacker Role</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME 3: Clash of Clans -->
+                <div class="game-card rounded-2xl overflow-hidden reveal flex flex-col h-full">
+                    <!-- Thumbnail Game -->
+                    <div class="h-48 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                        <img src="https://images8.alphacoders.com/782/thumb-1920-782648.png" alt="Clash of Clans Town Hall" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 z-20 game-badge text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Strategi</span>
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <h3 class="text-2xl font-bold text-white elegant-font">Clash of Clans</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Detail Profil & Highlight -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Profil Akun -->
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-400 text-xs uppercase tracking-widest">In-Game Profile</span>
+                                    <div class="relative flex items-center">
+                                        <button onclick="copyToClipboard('#ABC123XYZ', 'coc-copied')" class="text-gold hover:text-white text-xs transition flex items-center gap-1 bg-gold/10 hover:bg-gold/25 px-2 py-1 rounded border border-gold/30">
+                                            <i class="far fa-copy"></i> Salin Tag
+                                        </button>
+                                        <span id="coc-copied" class="copied-tooltip absolute -top-8 right-0 bg-gold text-slate-950 text-[10px] px-2 py-0.5 rounded shadow-lg font-bold">Tersalin!</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+                                    <div>
+                                        <p class="text-xs text-gray-500">IGN (Nama Akun)</p>
+                                        <p class="font-medium text-white text-base">⚡ ElixirKing ⚡</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Player Tag</p>
+                                        <p class="font-medium text-white text-base">#ABC123XYZ</p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Tingkat Town Hall (TH)</p>
+                                        <p class="font-medium text-blue-400 flex items-center gap-1">
+                                            <i class="fas fa-home text-xs"></i> TH 15 (Semi-Maxed)
+                                        </p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Pasukan Andalan</p>
+                                        <p class="font-medium text-gray-300">Electro Dragon, Yeti Walk</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Pencapaian -->
+                            <div>
+                                <span class="text-gray-400 text-xs uppercase tracking-widest block mb-2">Highlights & Stats</span>
+                                <div class="space-y-3">
+                                    <!-- Foto Screenshot Highlight -->
+                                    <div class="relative group rounded-xl overflow-hidden border border-gold/20 h-32 mb-3 cursor-pointer shadow-lg hover:shadow-gold/10 transition-all duration-300" onclick="openLightbox('https://i.ibb.co.com/DPVwQm88/Whats-App-Image-2026-07-21-at-08-15-55.jpg', '🏰 3-Star CWL Raid - Clash of Clans: Keberhasilan penyerangan 100% sempurna meluluhlantakkan base lawan TH 15 Max!')">
+                                        <img src="https://i.ibb.co.com/DPVwQm88/Whats-App-Image-2026-07-21-at-08-15-55.jpg" alt="Highlight CoC 3 Star" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-between p-3">
+                                            <span class="text-xs font-semibold text-gold flex items-center gap-1.5"><i class="fas fa-star text-yellow-400"></i> 3-Star CWL Raid</span>
+                                            <span class="text-[9px] bg-gold/95 hover:bg-gold text-slate-950 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1"><i class="fas fa-search-plus"></i> Detail</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>Liga Tertinggi (Trophy)</span>
+                                            <span class="text-gold font-bold">Legend League (5,120🏆)</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                            <div class="bg-gradient-to-r from-yellow-600 to-gold h-1.5 rounded-full" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-star text-yellow-400 mr-1"></i> 1,500+ War Stars Earned</span>
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-users text-purple-400 mr-1"></i> Active Clan Leader / Co-Lead</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAME 4: The Spike Cross -->
+                <div class="game-card rounded-2xl overflow-hidden reveal flex flex-col h-full" style="transition-delay: 0.1s;">
+                    <!-- Thumbnail Game -->
+                    <div class="h-48 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3983810/8c3b601b67c3cd20f1c63bf9a042ed16622fbc29/header.jpg?t=1760584948" alt="Volleyball Game Court" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 z-20 game-badge text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Sports / Arcade</span>
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <h3 class="text-2xl font-bold text-white elegant-font">The Spike: Volleyball Story</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Detail Profil & Highlight -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Profil Akun -->
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-400 text-xs uppercase tracking-widest">In-Game Profile</span>
+                                    <div class="relative flex items-center">
+                                        <button onclick="copyToClipboard('SPK-90812-SPIKE', 'spk-copied')" class="text-gold hover:text-white text-xs transition flex items-center gap-1 bg-gold/10 hover:bg-gold/25 px-2 py-1 rounded border border-gold/30">
+                                            <i class="far fa-copy"></i> Salin ID
+                                        </button>
+                                        <span id="spk-copied" class="copied-tooltip absolute -top-8 right-0 bg-gold text-slate-950 text-[10px] px-2 py-0.5 rounded shadow-lg font-bold">Tersalin!</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+                                    <div>
+                                        <p class="text-xs text-gray-500">IGN (Nama Akun)</p>
+                                        <p class="font-medium text-white text-base">🏐 NishikawaJr 🏐</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Cloud ID</p>
+                                        <p class="font-medium text-white text-base">SPK-90812-SPIKE</p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Pemain Utama (S-Rank)</p>
+                                        <p class="font-medium text-purple-400 flex items-center gap-1">
+                                            <i class="fas fa-star text-xs"></i> Nishikawa (S+ Tier)
+                                        </p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Posisi Tim Favorit</p>
+                                        <p class="font-medium text-gray-300">Wing Spiker (WS)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Pencapaian -->
+                            <div>
+                                <span class="text-gray-400 text-xs uppercase tracking-widest block mb-2">Highlights & Stats</span>
+                                <div class="space-y-3">
+                                    <!-- Foto Screenshot Highlight -->
+                                    <div class="relative group rounded-xl overflow-hidden border border-gold/20 h-32 mb-3 cursor-pointer shadow-lg hover:shadow-gold/10 transition-all duration-300" onclick="openLightbox('https://i.ibb.co.com/ZR1c9NLw/Whats-App-Image-2026-07-21-at-08-15-29.jpg', '🏐 Nishikawa S+ Spike Point - The Spike: Smash petir mematikan setinggi 4 meter yang telak menembus pertahanan musuh!')">
+                                        <img src="https://i.ibb.co.com/ZR1c9NLw/Whats-App-Image-2026-07-21-at-08-15-29.jpg" alt="Highlight The Spike WS" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-between p-3">
+                                            <span class="text-xs font-semibold text-gold flex items-center gap-1.5"><i class="fas fa-certificate text-indigo-400"></i> Nishikawa S+ Spike Point</span>
+                                            <span class="text-[9px] bg-gold/95 hover:bg-gold text-slate-950 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1"><i class="fas fa-search-plus"></i> Detail</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>Keberhasilan Spike Sempurna</span>
+                                            <span class="text-gold font-bold">94.1%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                            <div class="bg-gradient-to-r from-yellow-600 to-gold h-1.5 rounded-full" style="width: 94.1%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-certificate text-indigo-400 mr-1"></i> All S-Rank Players Unlocked</span>
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-medal text-red-500 mr-1"></i> Super Tournament Gold Medalist</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -->
+                <!-- GAME 5: Punishing Gray Raven -->
+                <div class="game-card rounded-2xl overflow-hidden reveal flex flex-col h-full md:col-span-2 lg:max-w-2xl lg:mx-auto w-full" style="transition-delay: 0.2s;">
+                    <!-- Thumbnail Game -->
+                    <div class="h-48 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                        <img src="https://livewallp.com/wp-content/uploads/2022/06/Battle-Double-Pamish-Lucia.png" alt="Punishing Gray Raven Cyberpunk Arena" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        <span class="absolute top-4 left-4 z-20 game-badge text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Sci-Fi RPG</span>
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <h3 class="text-2xl font-bold text-white elegant-font">Punishing: Gray Raven</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Detail Profil & Highlight -->
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Profil Akun -->
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-400 text-xs uppercase tracking-widest">In-Game Profile</span>
+                                    <div class="relative flex items-center">
+                                        <button onclick="copyToClipboard('109876543', 'pgr-copied')" class="text-gold hover:text-white text-xs transition flex items-center gap-1 bg-gold/10 hover:bg-gold/25 px-2 py-1 rounded border border-gold/30">
+                                            <i class="far fa-copy"></i> Salin ID
+                                        </button>
+                                        <span id="pgr-copied" class="copied-tooltip absolute -top-8 right-0 bg-gold text-slate-950 text-[10px] px-2 py-0.5 rounded shadow-lg font-bold">Tersalin!</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+                                    <div>
+                                        <p class="text-xs text-gray-500">IGN (Nama Akun)</p>
+                                        <p class="font-medium text-white text-base">Ryozy
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">ID Game (Server)</p>
+                                        <p class="font-medium text-white text-base">13545689 (Asia)</p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Rank Saat Ini (War Zone / Cage)</p>
+                                        <p class="font-medium text-red-400 flex items-center gap-1">
+                                            <i class="fas fa-biohazard text-xs"></i> Hero Tier Elite (Warzone)
+                                        </p>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="text-xs text-gray-500">Construct Andalan (Karakter)</p>
+                                        <p class="font-medium text-gray-300">Lucia: Crimson Abyss</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlight Pencapaian -->
+                            <div>
+                                <span class="text-gray-400 text-xs uppercase tracking-widest block mb-2">Highlights & Stats</span>
+                                <div class="space-y-3">
+                                    <!-- Foto Screenshot Highlight -->
+                                    <div class="relative group rounded-xl overflow-hidden border border-gold/20 h-32 mb-3 cursor-pointer shadow-lg hover:shadow-gold/10 transition-all duration-300" onclick="openLightbox(
+'https://i.ibb.co.com/C3tWY8V5/Cuplikan-layar-2026-07-20-204144.png',
+'⚡ Ultimate Matrix Dodge - PGR: Menghindari serangan fatal bos tingkat tinggi pada milidetik terakhir, memicu Matrix Mode, lalu membalas dengan kombo mematikan.'
+)"
+                                        <img src="https://i.ibb.co.com/C3tWY8V5/Cuplikan-layar-2026-07-20-204144.png" alt="Highlight PGR Combat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-between p-3">
+                                            <span class="text-xs font-semibold text-gold flex items-center gap-1.5"><i class="fas fa-bolt text-amber-400"></i> Ultimate Matrix Dodge</span>
+                                            <span class="text-[9px] bg-gold/95 hover:bg-gold text-slate-950 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider flex items-center gap-1"><i class="fas fa-search-plus"></i> Detail</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                            <span>Rasio Efisiensi Orb Matrix</span>
+                                            <span class="text-gold font-bold">92.5%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-800 rounded-full h-1.5">
+                                            <div class="bg-gradient-to-r from-yellow-600 to-gold h-1.5 rounded-full" style="width: 92.5%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-trophy text-red-500 mr-1"></i> Warzone Top 1% (Hero Bracket)</span>
+                                        <span class="text-[11px] bg-slate-800 text-gray-300 px-2 py-0.5 rounded border border-slate-700"><i class="fas fa-fire text-orange-500 mr-1"></i> CP: 7,800+ (Construct Maxed)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-900/80 backdrop-blur-md py-8 relative z-10 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl elegant-font text-white mb-4">Profil<span class="text-gold">.</span></h2>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-gray-400 hover:text-gold transition text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold transition text-xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold transition text-xl"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gold transition text-xl"><i class="far fa-envelope"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm font-light">
+                &copy; <span id="year"></span> Dibuat dengan dedikasi. Semua hak cipta dilindungi.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal untuk Foto Highlight -->
+    <div id="highlightLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" onclick="event.stopPropagation()">
+        <div class="lightbox-caption" id="lightboxCaption" onclick="event.stopPropagation()"></div>
+    </div>
+
+    <!-- Script Library untuk Efek Partikel -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom JavaScript untuk Interaktivitas -->
+    <script>
+        // Set tahun di footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Fungsi Salin ID ke Clipboard (Menggunakan metode standar & andal untuk iframe)
+        function copyToClipboard(text, tooltipId) {
+            // Buat elemen input temporer
+            var tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            
+            // Pilih teks di dalam input
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); /* Untuk perangkat seluler */
+            
+            try {
+                // Jalankan perintah salin
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    // Tampilkan tooltip animasi sukses
+                    var tooltip = document.getElementById(tooltipId);
+                    tooltip.classList.add("show");
+                    setTimeout(function() {
+                        tooltip.classList.remove("show");
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error("Gagal menyalin teks: ", err);
+            }
+            
+            // Hapus elemen temporer
+            document.body.removeChild(tempInput);
+        }
+
+        // 1. Konfigurasi Particles.js untuk efek latar belakang elegan
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 40, // Jumlah partikel sedikit agar tidak ramai, terlihat elegan
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": { "value": "#d4af37" }, // Warna emas untuk partikel
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#d4af37",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 200, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // 2. Efek Animasi Saat Scroll (Scroll Reveal)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // Mulai animasi ketika elemen 100px dari bawah layar
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Picu sekali saat halaman dimuat
+        reveal();
+
+        // 3. Efek Navbar (Mengubah latar belakang saat di-scroll)
+        window.addEventListener("scroll", function() {
+            var navbar = document.getElementById("navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-slate-900/90", "backdrop-blur-md", "shadow-lg");
+                navbar.classList.remove("bg-transparent");
+            } else {
+                navbar.classList.add("bg-transparent");
+                navbar.classList.remove("bg-slate-900/90", "backdrop-blur-md", "shadow-lg");
+            }
+        });
+
+        // 4. Lightbox Modal untuk Foto Highlight Game
+        function openLightbox(imageUrl, captionText) {
+            var lightbox = document.getElementById("highlightLightbox");
+            var img = document.getElementById("lightboxImage");
+            var caption = document.getElementById("lightboxCaption");
+            
+            // Atur display flex sebelum mengubah kelas active untuk animasi opacity
+            lightbox.style.display = "flex";
+            
+            // Trigger browser reflow agar transisi terbaca
+            lightbox.offsetHeight;
+            
+            lightbox.classList.add("active");
+            img.src = imageUrl;
+            caption.innerHTML = captionText;
+            
+            // Nonaktifkan scroll pada body saat lightbox terbuka
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById("highlightLightbox");
+            lightbox.classList.remove("active");
+            
+            // Tunggu animasi transisi selesai (300ms) baru hilangkan display
+            setTimeout(function() {
+                if(!lightbox.classList.contains("active")) {
+                    lightbox.style.display = "none";
+                }
+            }, 300);
+            
+            // Aktifkan kembali scroll
+            document.body.style.overflow = "auto";
+        }
+    </script>
+</body>
+</html>
